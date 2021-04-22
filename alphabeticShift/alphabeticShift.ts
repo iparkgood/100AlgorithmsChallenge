@@ -29,11 +29,11 @@ export function alphabeticShift(inputString: string): string {
     z: "a",
   };
 
-  for (let i = 0; i < inputArr.length; i++) {
-    inputArr[i] = alphabets[inputArr[i]];
-  }
-
-  return inputArr.join("");
+  return inputArr
+    .map((input) => {
+      return input.replace(input, alphabets[input]);
+    })
+    .join("");
 }
 
 console.log(alphabeticShift("crazy"));
