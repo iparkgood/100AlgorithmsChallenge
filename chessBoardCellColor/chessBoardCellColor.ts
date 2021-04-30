@@ -10,14 +10,10 @@ export function chessBoardCellColor(cell1: string, cell2: string): boolean {
     H: 8,
   };
 
-  const cell1FirstColor = board[cell1[0]] % 2 === 0 ? "black" : "white";
-  const cell1SecondColor = +cell1[1] % 2 === 0 ? "black" : "white";
-  const cell2FirstColor = board[cell2[0]] % 2 === 0 ? "black" : "white";
-  const cell2SecondColor = +cell2[1] % 2 === 0 ? "black" : "white";
+  const cell1Color = (board[cell1[0]] + +cell1[1]) % 2;
+  const cell2Color = (board[cell2[0]] + +cell2[1]) % 2;
 
-  return (
-    cell1FirstColor === cell2FirstColor && cell2SecondColor === cell1SecondColor
-  );
+  return cell1Color === cell2Color;
 }
 
 console.log(chessBoardCellColor("A1", "C3")); //true
