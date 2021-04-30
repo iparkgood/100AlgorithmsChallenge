@@ -1,9 +1,5 @@
 export function characterParity(symbol: string): string {
-  if (isNaN(+symbol)) {
-    return "not a digit";
-  } else {
-    return +symbol % 2 === 0 ? "even" : "odd";
-  }
+  return isNaN(+symbol) ? "not a digit" : +symbol % 2 === 0 ? "even" : "odd";
 }
 
 console.log(characterParity("5")); //"odd"
