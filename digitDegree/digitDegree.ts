@@ -1,13 +1,11 @@
 export function digitDegree(n: number): number {
-  const nums = [...n.toString()].map((num) => +num);
+  let nums = [...n.toString()].map((n) => +n);
+  let count = 0;
+  let sum = 0;
 
-  if (nums.length === 1) return 0;
-
-  let sum = nums.reduce((acc, num) => acc + num);
-  let count = 1;
-
-  while (sum.toString().length !== 1) {
-    sum = [...sum.toString()].reduce((acc, num) => acc + +num, 0);
+  while (nums.length > 1) {
+    sum = nums.reduce((acc, num) => acc + num, 0);
+    nums = [...sum.toString()].map((n) => +n);
     count++;
   }
 
