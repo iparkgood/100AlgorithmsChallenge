@@ -1,11 +1,11 @@
 export function domainType(domains: string[]): string[] {
   return domains.map((domain) => {
-    const words = domain.split(".");
-    return words[words.length - 1] === "org"
+    const lastWord = domain.slice(domain.lastIndexOf(".") + 1);
+    return lastWord === "org"
       ? "organization"
-      : words[words.length - 1] === "com"
+      : lastWord === "com"
       ? "commercial"
-      : words[words.length - 1] === "net"
+      : lastWord === "net"
       ? "network"
       : "information";
   });
