@@ -2,11 +2,7 @@ export function extractMatrixColumn(
   matrix: number[][],
   column: number
 ): number[] {
-  let result = [];
-
-  matrix.forEach((row) => result.push(row[column]));
-
-  return result;
+  return matrix.map((row) => +row.filter((el, idx) => idx === column).join(""));
 }
 
 console.log(
