@@ -1,14 +1,11 @@
 export function findClosestPair(numbers: number[], sum: number): number {
   let distance = -1;
 
-  for (let i = 0; i < numbers.length - 1; i++) {
+  for (let i = 0; i < numbers.length; i++) {
     for (let j = i + 1; j < numbers.length; j++) {
-      const findSum = numbers[i] + numbers[j];
-      const findDistance = Math.abs(i - j);
-      
-      if (findSum === sum) {
-        if (distance === -1 || findDistance < distance) {
-          distance = findDistance;
+      if (numbers[i] + numbers[j] === sum) {
+        if (distance === -1 || distance > Math.abs(i - j)) {
+          distance = Math.abs(i - j);
         }
       }
     }
