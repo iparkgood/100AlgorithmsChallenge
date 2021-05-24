@@ -1,18 +1,11 @@
 export function allLongestStrings(inputArray: string[]): string[] {
-  let longestLeng = 0;
-  let longestStrs = [];
+  let max = 0;
 
   inputArray.forEach((input) => {
-    longestLeng = input.length < longestLeng ? longestLeng : input.length;
+    max = max < input.length ? input.length : max;
   });
 
-  inputArray.forEach((input) => {
-    if (longestLeng === input.length) {
-      longestStrs.push(input);
-    }
-  });
-
-  return longestStrs;
+  return inputArray.filter((input) => input.length === max);
 }
 
 console.log(allLongestStrings(["aba", "aaaa", "addc", "vcd", "aba"]));
