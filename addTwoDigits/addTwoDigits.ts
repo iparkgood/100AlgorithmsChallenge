@@ -1,9 +1,5 @@
 export function addTwoDigits(n: any): number {
-    const numArr = n.toString().split('');
-
-    return numArr.reduce((acc, num) => {
-        return acc+= parseInt(num);
-    }, 0);
+  return [...n.toString()].reduce((acc, n) => acc + +n, 0);
 }
 
 console.log(addTwoDigits(29));
