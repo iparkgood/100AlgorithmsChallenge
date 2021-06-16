@@ -6,10 +6,8 @@ export function matrixElementsSum(matrix: any[][]): number {
     for (let j = 0; j < matrix[i].length; j++) {
       if (matrix[i][j] === 0) {
         colIdx.push(j);
-      } else {
-        if (!colIdx.includes(j)) {
-          count += matrix[i][j];
-        }
+      } else if (!colIdx.includes(j)) {
+        count += matrix[i][j];
       }
     }
   }
