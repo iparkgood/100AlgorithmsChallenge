@@ -1,13 +1,17 @@
 export function sumOddFibonacciNums(num: number): number {
-  let fibs = [1, 1];
-  let idx = 2;
+  let sum = 0;
+  let current = 1;
+  let prev = 1;
 
-  while (fibs[idx - 2] + fibs[idx - 1] < num) {
-    fibs.push(fibs[idx - 2] + fibs[idx - 1]);
-    idx++;
+  while (current < num) {
+    if (current % 2 !== 1) sum += current;
+
+    const next = current + prev;
+    prev = current;
+    current = next;
   }
 
-  return fibs.filter((f) => f % 2 !== 0).reduce((acc, n) => acc + n);
+  return sum;
 }
 
 console.log(sumOddFibonacciNums(1000));
